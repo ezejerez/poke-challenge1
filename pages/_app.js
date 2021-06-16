@@ -6,33 +6,16 @@ import PokemonTypeButton from '../components/PokemonTypeButton';
 import PrevPage1 from '../img/PrevPage1.svg';
 import PokemonCard from '../components/PokemonCard';
 import NextPage1 from '../img/NextPage1.svg';
-import Logo from '../img/PokeChallengeLogo.png';
-import NavbarButton from '../components/NavbarButton';
+import Navbar from '../components/Navbar/index';
 import { lightTheme, darkTheme, GlobalStyles } from '../themes';
 
 export default function App() {
   const pokemonTypeCardsIds = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
   ];
 
   const [pokemonData, setPokemonData] = useState([]);
+  const [selectedPokemonTypes, setSelectedPokemonTypes] = useState([]);
   const [nextUrl, setNextUrl] = useState('');
   const [prevUrl, setprevUrl] = useState('');
   const [loading, setLoading] = useState(true);
@@ -94,21 +77,7 @@ export default function App() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
 
-      <StyledNavbar>
-        <div>
-          <NavbarButton>SPANISH</NavbarButton>
-          <NavbarButton>ENGLISH</NavbarButton>
-        </div>
-        <img src={Logo} alt='Logo' />
-        <div>
-          <NavbarButton onClick={() => themeTogglerLight()}>
-            ORIGINAL
-          </NavbarButton>
-          <NavbarButton onClick={() => themeTogglerDark()}>
-            DARK THEME
-          </NavbarButton>
-        </div>
-      </StyledNavbar>
+      <Navbar />
 
       <StyledMeetThePokemons>MEET THE POKÉMONS:</StyledMeetThePokemons>
 
@@ -167,29 +136,4 @@ const StyledPokemonTypeContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-`;
-
-const StyledNavbar = styled.div`
-  height: 110px;
-  width: 100%;
-  background-color: #ee0000;
-  color: #ffdf00;
-
-  display: flex;
-  justify-content: space-between;
-
-  > div {
-    margin: 40px 0px;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
-  }
-
-  > img {
-    width: 333.3333333333px;
-    height: 75px;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    display: flex;
-    justify-content: center;
-  }
 `;
