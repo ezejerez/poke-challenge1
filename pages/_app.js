@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import axios from 'axios';
 import { getAllPokemon, getPokemon } from '../services/pokemon';
-import PokemonTypeButton from '../components/PokemonTypeButton';
 import PrevPage1 from '../img/PrevPage1.svg';
 import PokemonCard from '../components/PokemonCard';
 import NextPage1 from '../img/NextPage1.svg';
 import Navbar from '../components/Navbar/index';
+import PokemonTypeButtons from '../components/PokemonTypeButtons/index';
 import { lightTheme, darkTheme, GlobalStyles } from '../themes';
 
 export default function App() {
@@ -81,11 +81,7 @@ export default function App() {
 
       <StyledMeetThePokemons>MEET THE POKÉMONS:</StyledMeetThePokemons>
 
-      <StyledPokemonTypeContainer>
-        {pokemonTypeCardsIds.map((pokemonTypeId, i) => (
-          <PokemonTypeButton key={i} pokemonTypeId={pokemonTypeId} />
-        ))}
-      </StyledPokemonTypeContainer>
+      <PokemonTypeButtons />
 
       <StyledCardsContainer>
         <img src={PrevPage1} alt='prev1' onClick={prev} />
@@ -126,14 +122,4 @@ const StyledCardsContainer = styled.div`
     margin-bottom: auto;
     cursor: pointer;
   }
-`;
-
-const StyledPokemonTypeContainer = styled.div`
-  width: 60%;
-  margin: auto;
-  margin-bottom: 1%;
-
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
 `;

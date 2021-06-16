@@ -1,26 +1,16 @@
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 
-export default function PokemonTypeButton({ pokemonTypeId }) {
-  const [pokemonType, setPokemonType] = useState('');
+export const PokemonTypeButtonsContainer = styled.div`
+  width: 60%;
+  margin: auto;
+  margin-bottom: 1%;
 
-  useEffect(() => {
-    const url = `https://pokeapi.co/api/v2/type/${pokemonTypeId}/`;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+`;
 
-    axios.get(url).then((result) => {
-      setPokemonType(result.data.name);
-    });
-  }, []);
-
-  return (
-    <StyledPokemonTypeButton pokemonTypeId={pokemonTypeId}>
-      {pokemonType.toUpperCase()}
-    </StyledPokemonTypeButton>
-  );
-}
-
-const StyledPokemonTypeButton = styled.button`
+export const PokemonTypeButton = styled.button`
   color: white;
   border: 1px solid grey;
   overflow: hidden;
