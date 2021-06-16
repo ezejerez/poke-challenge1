@@ -5,7 +5,10 @@ import {
 } from './PokemonTypeButtonsStyles';
 import axios from 'axios';
 
-export default function PokemonTypeButtons({ pokemonTypeId }) {
+export default function PokemonTypeButtons({
+  pokemonTypeId,
+  pokemonTypeCardsIds,
+}) {
   const [pokemonType, setPokemonType] = useState('');
 
   useEffect(() => {
@@ -17,7 +20,7 @@ export default function PokemonTypeButtons({ pokemonTypeId }) {
   }, []);
 
   return (
-    <PokemonTypeButtonsContainer>
+    <PokemonTypeButtonsContainer pokemonTypeCardsIds={pokemonTypeCardsIds}>
       {pokemonTypeCardsIds.map((pokemonTypeId, i) => (
         <PokemonTypeButton
           key={i}

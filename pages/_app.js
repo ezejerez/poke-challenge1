@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import axios from 'axios';
 import { getAllPokemon, getPokemon } from '../services/pokemon';
 import PrevPage1 from '../img/PrevPage1.svg';
 import PokemonCard from '../components/PokemonCard';
@@ -13,6 +12,8 @@ export default function App() {
   const pokemonTypeCardsIds = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
   ];
+
+  const pokemonTypeId = 1;
 
   const [pokemonData, setPokemonData] = useState([]);
   const [selectedPokemonTypes, setSelectedPokemonTypes] = useState([]);
@@ -81,7 +82,7 @@ export default function App() {
 
       <StyledMeetThePokemons>MEET THE POKÉMONS:</StyledMeetThePokemons>
 
-      <PokemonTypeButtons />
+      <PokemonTypeButtons pokemonTypeCardsIds={pokemonTypeCardsIds} />
 
       <StyledCardsContainer>
         <img src={PrevPage1} alt='prev1' onClick={prev} />

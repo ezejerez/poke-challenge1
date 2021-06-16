@@ -51,7 +51,6 @@ export const NavbarContainer = styled.div`
   width: 100vw;
   padding: 0 24px;
   max-width: 1850px;
-  background: blue;
 `;
 
 export const NavLogo = styled.img`
