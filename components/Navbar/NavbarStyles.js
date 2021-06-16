@@ -29,11 +29,9 @@ export const Nav = styled.div`
   background: #ee0000;
   color: #ffdf00;
   height: 80px;
-  margin-top: -80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -46,35 +44,41 @@ export const Nav = styled.div`
 export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 70px;
   z-index: 1;
-  width: 100%;
+  width: 100vw;
   padding: 0 24px;
   max-width: 1850px;
-  background-color: blue;
 `;
 
 export const NavLogo = styled.img`
   display: flex;
   align-items: center;
   height: 100%;
-  background: #000;
+`;
+
+export const NavbarButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
 `;
 
 export const NavbarButton = styled.button`
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 60%;
   cursor: pointer;
   background: #ee0000;
   color: yellow;
   border: none;
 
+  font-size: 1.3rem;
   text-align: center;
   font-family: Pixellari;
-  font-size: 22px;
 
   &.active {
-    border: 3px solid #01bf71;
+    border-bottom: 3px solid yellow;
   }
 `;
+
+// fixear la tipografia de manera global, por qué el container tiene 100% y no llega hasta el borde? fixear el active de los botones
