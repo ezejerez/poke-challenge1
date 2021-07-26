@@ -19,6 +19,7 @@ export const PokemonTypeButton = styled.button`
   border-radius: 12px;
 
   text-align: center;
+  text-transform: uppercase;
   font-family: Pixellari;
   font-size: 30px;
   margin-top: 30px;

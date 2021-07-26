@@ -5,24 +5,25 @@ import {
 } from './PokemonTypeButtonsStyles';
 import axios from 'axios';
 
-export default function PokemonTypeButtons({ pokemonTypeId }) {
-  const [pokemonType, setPokemonType] = useState('');
+export default function PokemonTypeButtons({ pokemonTypeCardsIds }) {
+  const [pokemonTypeNames, setPokemonTypeNames] = useState({});
 
   useEffect(() => {
-    const url = `https://pokeapi.co/api/v2/type/${pokemonTypeId}/`;
-
-    axios.get(url).then((result) => {
-      setPokemonType(result.data.name);
+    pokemonTypeCardsIds.forEach((ptcId) => {
+      const url = `https://pokeapi.co/api/v2/type/${ptcId}/`;
+      axios.get(url).then((result) => {
+        pokemonTypeNames[ptcId] = result.data.name;
+        setPokemonTypeNames({ ...pokemonTypeNames });
+      });
     });
   }, []);
 
   return (
-    <PokemonTypeButtonsContainer>
-      {pokemonTypeCardsIds.map((pokemonTypeId, i) => (
-        <PokemonTypeButton
-          key={i}
-          pokemonTypeId={pokemonTypeId}
-          {...pokemonType.toUpperCase()}></PokemonTypeButton>
+    <PokemonTypeButtonsContainer pokemonTypeCardsIds={pokemonTypeCardsIds}>
+      {pokemonTypeCardsIds.map((ptcId, k) => (
+        <PokemonTypeButton key={k} pokemonTypeId={ptcId}>
+          {pokemonTypeNames[ptcId]}
+        </PokemonTypeButton>
       ))}
     </PokemonTypeButtonsContainer>
   );
