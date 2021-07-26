@@ -1,43 +1,6 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 
-export default function PokemonCard({ pokemon }) {
-  const [clicked, setClicked] = useState(false);
-  const abilitiesNames = pokemon.abilities.map((a) => a.ability.name);
-
-  return (
-    <StyledPokemonCard onClick={() => setClicked(!clicked)}>
-      {clicked ? (
-        <StyledBackCard>
-          <div>{pokemon.name.toUpperCase()}</div>
-
-          <StyledType>
-            {pokemon.types.map((a) => {
-              return (
-                <div className={a.type.name}>{a.type.name.toUpperCase()}</div>
-              );
-            })}
-          </StyledType>
-
-          <div class='stats'>
-            <p>HP: {pokemon.stats[0].base_stat}</p>
-            <p>Attack: {pokemon.stats[1].base_stat}</p>
-            <p>Defense: {pokemon.stats[2].base_stat}</p>
-            <p>Abilities: {abilitiesNames.join(', ')}</p>
-          </div>
-        </StyledBackCard>
-      ) : (
-        <StyledFrontCard>
-          <img src={pokemon.sprites.front_default} alt='img' />
-
-          <div>{pokemon.name.toUpperCase()}</div>
-        </StyledFrontCard>
-      )}
-    </StyledPokemonCard>
-  );
-}
-
-const StyledPokemonCard = styled.div`
+export const StyledPokemonCard = styled.div`
   height: 450px;
   width: 280px;
   border: 1px solid grey;
@@ -46,7 +9,7 @@ const StyledPokemonCard = styled.div`
   cursor: pointer;
 `;
 
-const StyledFrontCard = styled.div`
+export const StyledFrontCard = styled.div`
   > img {
     display: flex;
     height: 260px;
@@ -63,16 +26,18 @@ const StyledFrontCard = styled.div`
     color: white;
     margin-top: 60px;
     font-size: 40px;
+    text-transform: uppercase;
   }
 `;
 
-const StyledBackCard = styled.div`
+export const StyledBackCard = styled.div`
   > div {
     display: flex;
     justify-content: center;
     color: white;
     margin-top: 30px;
     font-size: 30px;
+    text-transform: uppercase;
   }
 
   .stats {
@@ -85,8 +50,9 @@ const StyledBackCard = styled.div`
   }
 `;
 
-const StyledType = styled.div`
+export const StyledType = styled.div`
   > div {
+    text-transform: uppercase;
     display: flex;
     justify-content: center;
     color: white;

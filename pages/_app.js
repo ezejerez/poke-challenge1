@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { getAllPokemon, getPokemon } from '../services/pokemon';
-import PrevPage1 from '../img/PrevPage1.svg';
-import PokemonCard from '../components/PokemonCard';
-import NextPage1 from '../img/NextPage1.svg';
-import Navbar from '../components/Navbar/index';
-import PokemonTypeButtons from '../components/PokemonTypeButtons/index';
 import { lightTheme, darkTheme, GlobalStyles } from '../themes';
+import { getAllPokemon, getPokemon } from '../services/pokemon';
+import Navbar from '../components/Navbar';
+import PokemonTypeButtons from '../components/PokemonTypeButtons';
+import PokemonCard from '../components/PokemonCard/index';
+import PrevPage1 from '../img/PrevPage1.svg';
+import NextPage1 from '../img/NextPage1.svg';
 
 export default function App() {
   const pokemonTypeCardsIds = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
   ];
-
-  const pokemonTypeId = 1;
 
   const [pokemonData, setPokemonData] = useState([]);
   const [selectedPokemonTypes, setSelectedPokemonTypes] = useState([]);
@@ -87,8 +85,8 @@ export default function App() {
       <StyledCardsContainer>
         <img src={PrevPage1} alt='prev1' onClick={prev} />
 
-        {pokemonData.slice(0, 5).map((pokemon, i) => (
-          <PokemonCard key={i} pokemon={pokemon} />
+        {pokemonData.slice(0, 5).map((pokemon, k) => (
+          <PokemonCard key={k} pokemon={pokemon} />
         ))}
 
         <img src={NextPage1} alt='next1' onClick={next} />
