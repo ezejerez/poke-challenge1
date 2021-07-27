@@ -14,11 +14,12 @@ export default function App() {
   ];
 
   const [pokemonData, setPokemonData] = useState([]);
-  const [selectedPokemonTypes, setSelectedPokemonTypes] = useState([]);
+  const [selectedPokemonType, setSelectedPokemonType] = useState([]);
   const [nextUrl, setNextUrl] = useState('');
   const [prevUrl, setprevUrl] = useState('');
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState('light');
+  const [pokeIndex, setPokeIndex] = useState(0);
 
   const themeTogglerLight = () => {
     setTheme('light');
@@ -28,11 +29,9 @@ export default function App() {
     setTheme('dark');
   };
 
-  const initialUrl = `https://pokeapi.co/api/v2/pokemon/`;
-
   useEffect(() => {
     async function fetchData() {
-      let response = await getAllPokemon(initialUrl);
+      let response = await getAllPokemon();
       setNextUrl(response.next);
       setprevUrl(response.previous);
       await loadingPokemon(response.results);
@@ -43,22 +42,11 @@ export default function App() {
   }, []);
 
   const next = async () => {
-    setLoading(true);
-    let data = await getAllPokemon(nextUrl);
-    await loadingPokemon(data.results);
-    setNextUrl(data.next);
-    setprevUrl(data.previous);
-    setLoading(false);
+    setPokeIndex(pokeIndex + 5);
   };
 
   const prev = async () => {
-    if (!prevUrl) return;
-    setLoading(true);
-    let data = await getAllPokemon(prevUrl);
-    await loadingPokemon(data.results);
-    setNextUrl(data.next);
-    setprevUrl(data.previous);
-    setLoading(false);
+    setPokeIndex(pokeIndex - 5);
   };
 
   const loadingPokemon = async (data) => {
@@ -71,6 +59,11 @@ export default function App() {
 
     setPokemonData(_pokemonData);
   };
+
+  const filteredPokemonData = pokemonData
+    .filter((pokemon) => pokemon.types.find((t) => t.type.name === 'grass'))
+    .slice(pokeIndex, pokeIndex + 5)
+    .map((pokemon, k) => <PokemonCard key={k} pokemon={pokemon} />);
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -85,9 +78,7 @@ export default function App() {
       <StyledCardsContainer>
         <img src={PrevPage1} alt='prev1' onClick={prev} />
 
-        {pokemonData.slice(0, 5).map((pokemon, k) => (
-          <PokemonCard key={k} pokemon={pokemon} />
-        ))}
+        {filteredPokemonData}
 
         <img src={NextPage1} alt='next1' onClick={next} />
       </StyledCardsContainer>
