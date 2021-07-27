@@ -1,6 +1,6 @@
-export async function getAllPokemon(url) {
+export async function getAllPokemon() {
   return new Promise((resolve, reject) => {
-    fetch(url)
+    fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=5000')
       .then((res) => res.json())
       .then((data) => {
         resolve(data);
