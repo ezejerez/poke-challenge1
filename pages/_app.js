@@ -14,7 +14,7 @@ export default function App() {
   ];
 
   const [pokemonData, setPokemonData] = useState([]);
-  const [selectedPokemonType, setSelectedPokemonType] = useState([]);
+  const [selectedPokemonType, setSelectedPokemonType] = useState('');
   const [nextUrl, setNextUrl] = useState('');
   const [prevUrl, setprevUrl] = useState('');
   const [loading, setLoading] = useState(true);
@@ -41,12 +41,20 @@ export default function App() {
     fetchData();
   }, []);
 
-  const next = async () => {
-    setPokeIndex(pokeIndex + 5);
+  const next = () => {
+    if (pokeIndex + 5 > filteredPokemonData.length) {
+      setPokeIndex(0);
+    } else {
+      setPokeIndex(pokeIndex + 5);
+    }
   };
 
-  const prev = async () => {
-    setPokeIndex(pokeIndex - 5);
+  const prev = () => {
+    if (pokeIndex - 5 < 0) {
+      setPokeIndex(filteredPokemonData.length - 5);
+    } else {
+      setPokeIndex(pokeIndex - 5);
+    }
   };
 
   const loadingPokemon = async (data) => {
@@ -60,10 +68,13 @@ export default function App() {
     setPokemonData(_pokemonData);
   };
 
-  const filteredPokemonData = pokemonData
-    .filter((pokemon) => pokemon.types.find((t) => t.type.name === 'grass'))
-    .slice(pokeIndex, pokeIndex + 5)
-    .map((pokemon, k) => <PokemonCard key={k} pokemon={pokemon} />);
+  const onTypeClick = (typeClicked) => {
+    setSelectedPokemonType(typeClicked);
+  };
+
+  const filteredPokemonData = pokemonData.filter((pokemon) =>
+    pokemon.types.find((t) => t.type.name === selectedPokemonType),
+  );
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -73,12 +84,17 @@ export default function App() {
 
       <StyledMeetThePokemons>MEET THE POKÉMONS:</StyledMeetThePokemons>
 
-      <PokemonTypeButtons pokemonTypeCardsIds={pokemonTypeCardsIds} />
+      <PokemonTypeButtons
+        pokemonTypeCardsIds={pokemonTypeCardsIds}
+        onTypeButtonClick={onTypeClick}
+      />
 
       <StyledCardsContainer>
         <img src={PrevPage1} alt='prev1' onClick={prev} />
 
-        {filteredPokemonData}
+        {filteredPokemonData.slice(pokeIndex, pokeIndex + 5).map((pokemon) => (
+          <PokemonCard key={pokemon.name} pokemon={pokemon} />
+        ))}
 
         <img src={NextPage1} alt='next1' onClick={next} />
       </StyledCardsContainer>
