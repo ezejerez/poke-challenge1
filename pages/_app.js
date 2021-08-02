@@ -14,12 +14,12 @@ export default function App() {
   ];
 
   const [pokemonData, setPokemonData] = useState([]);
-  const [selectedPokemonType, setSelectedPokemonType] = useState('');
+  const [loading, setLoading] = useState(true);
   const [nextUrl, setNextUrl] = useState('');
   const [prevUrl, setprevUrl] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [theme, setTheme] = useState('light');
   const [pokeIndex, setPokeIndex] = useState(0);
+  const [selectedPokemonType, setSelectedPokemonType] = useState('');
+  const [theme, setTheme] = useState('light');
 
   const themeTogglerLight = () => {
     setTheme('light');
@@ -42,7 +42,7 @@ export default function App() {
   }, []);
 
   const next = () => {
-    if (pokeIndex + 5 > filteredPokemonData.length) {
+    if (pokeIndex + 5 >= pokemonsToShow.length) {
       setPokeIndex(0);
     } else {
       setPokeIndex(pokeIndex + 5);
@@ -51,7 +51,7 @@ export default function App() {
 
   const prev = () => {
     if (pokeIndex - 5 < 0) {
-      setPokeIndex(filteredPokemonData.length - 5);
+      setPokeIndex(pokemonsToShow.length - 5);
     } else {
       setPokeIndex(pokeIndex - 5);
     }
@@ -68,13 +68,21 @@ export default function App() {
     setPokemonData(_pokemonData);
   };
 
-  const onTypeClick = (typeClicked) => {
+  function onTypeClick(typeClicked) {
     setSelectedPokemonType(typeClicked);
-  };
+  }
 
-  const filteredPokemonData = pokemonData.filter((pokemon) =>
-    pokemon.types.find((t) => t.type.name === selectedPokemonType),
-  );
+  function getPokemonsToShow() {
+    if (selectedPokemonType) {
+      return pokemonData.filter((pokemon) =>
+        pokemon.types.find((t) => t.type.name === selectedPokemonType),
+      );
+    } else {
+      return pokemonData;
+    }
+  }
+
+  const pokemonsToShow = getPokemonsToShow();
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -92,7 +100,7 @@ export default function App() {
       <StyledCardsContainer>
         <img src={PrevPage1} alt='prev1' onClick={prev} />
 
-        {filteredPokemonData.slice(pokeIndex, pokeIndex + 5).map((pokemon) => (
+        {pokemonsToShow.slice(pokeIndex, pokeIndex + 5).map((pokemon) => (
           <PokemonCard key={pokemon.name} pokemon={pokemon} />
         ))}
 
