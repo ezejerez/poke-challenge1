@@ -3,7 +3,6 @@ import {
   StyledPokemonCard,
   StyledBackCard,
   StyledFrontCard,
-  StyledType,
 } from './PokemonCardStyles';
 
 export default function PokemonCard({ pokemon }) {
@@ -14,17 +13,17 @@ export default function PokemonCard({ pokemon }) {
     <StyledPokemonCard onClick={() => setClicked(!clicked)}>
       {clicked ? (
         <StyledBackCard>
-          <div>{pokemon.name}</div>
+          <h1>{pokemon.name}</h1>
 
-          <StyledType>
-            {pokemon.types.map((a, k) => {
+          <div className='type'>
+            {pokemon.types.map((a) => {
               return (
-                <div className={a.type.name} key={k}>
+                <div className={a.type.name} key={a.type.name}>
                   {a.type.name}
                 </div>
               );
             })}
-          </StyledType>
+          </div>
 
           <div className='stats'>
             <p>HP: {pokemon.stats[0].base_stat}</p>
@@ -37,7 +36,7 @@ export default function PokemonCard({ pokemon }) {
         <StyledFrontCard>
           <img src={pokemon.sprites.front_default} alt='img' />
 
-          <div>{pokemon.name}</div>
+          <h1>{pokemon.name}</h1>
         </StyledFrontCard>
       )}
     </StyledPokemonCard>
