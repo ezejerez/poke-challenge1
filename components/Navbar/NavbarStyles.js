@@ -46,7 +46,6 @@ export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   height: 70px;
-  width: 100%;
   z-index: 1;
   width: 100vw;
   padding: 0 24px;
@@ -76,7 +75,6 @@ export const NavbarButton = styled.button`
 
   font-size: 1.3rem;
   text-align: center;
-  font-family: Pixellari;
 
   &.active {
     border-bottom: 3px solid yellow;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme, GlobalStyles } from '../themes';
+import { lightTheme, darkTheme, ThemeStyles } from '../themes';
 import { getAllPokemon, getPokemon } from '../services/pokemon';
 import Navbar from '../components/Navbar';
 import PokemonTypeButtons from '../components/PokemonTypeButtons';
@@ -86,7 +86,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <GlobalStyles />
+      <ThemeStyles />
 
       <Navbar />
 

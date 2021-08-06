@@ -10,13 +10,11 @@ export const darkTheme = {
   text: 'white',
 };
 
-export const GlobalStyles = createGlobalStyle`
+export const ThemeStyles = createGlobalStyle`
 body {
   background-color: ${(props) => props.theme.body};
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
-
-  font-family: Pixellari;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
 }`;

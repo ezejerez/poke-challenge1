@@ -3,138 +3,147 @@ import styled from 'styled-components';
 export const StyledPokemonCard = styled.div`
   height: 450px;
   width: 280px;
-  border: 1px solid grey;
+  border: 1px solid black;
   border-radius: 10px;
-  background-color: #009ba2;
+  background: #009ba2;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 `;
 
 export const StyledFrontCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+
   > img {
-    display: flex;
-    height: 260px;
-    background-color: white;
-    border: 1px solid grey;
-    margin-top: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 16em;
+    background: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: auto;
   }
 
-  > div {
-    display: flex;
-    justify-content: center;
+  > h1 {
+    margin: auto;
     color: white;
-    margin-top: 60px;
-    font-size: 40px;
     text-transform: uppercase;
+    width: 100%;
+    text-align: center;
   }
 `;
 
 export const StyledBackCard = styled.div`
-  > div {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+
+  > h1 {
+    margin: auto;
     color: white;
-    margin-top: 30px;
-    font-size: 30px;
     text-transform: uppercase;
+    width: 100%;
+    text-align: center;
   }
 
   .stats {
+    color: white;
+    text-align: left;
+
     display: flex;
     flex-direction: column;
-    color: white;
-    margin-top: 25%;
-    margin-left: 5%;
-    font-size: 110%;
+    margin: 0px 10px 10px 10px;
   }
-`;
 
-export const StyledType = styled.div`
-  > div {
-    text-transform: uppercase;
+  .type {
     display: flex;
-    justify-content: center;
-    color: white;
-    margin-top: 1%;
-    font-size: 70%;
-    border: 1px solid grey;
-    overflow: hidden;
-    outline: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 1%;
-  }
+    justify-content: space-between;
+    margin: auto;
 
-  > div.normal {
-    background-color: #bdbdaf;
-  }
+    > div {
+      text-transform: uppercase;
+      color: white;
+      font-size: 20px;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 5px;
+      margin: 5px;
+    }
 
-  > div.fighting {
-    background-color: #bf5540;
-  }
+    > div.normal {
+      background: #bdbdaf;
+    }
 
-  > div.flying {
-    background-color: #62a5ff;
-  }
+    > div.fighting {
+      background: #bf5540;
+    }
 
-  > div.poison {
-    background-color: #c05da6;
-  }
+    > div.flying {
+      background: #62a5ff;
+    }
 
-  > div.ground {
-    background-color: #fbcf49;
-  }
+    > div.poison {
+      background: #c05da6;
+    }
 
-  > div.rock {
-    background-color: #d4bd6e;
-  }
+    > div.ground {
+      background: #fbcf49;
+    }
 
-  > div.bug {
-    background-color: #bdd300;
-  }
+    > div.rock {
+      background: #d4bd6e;
+    }
 
-  > div.ghost {
-    background-color: #7d76db;
-  }
+    > div.bug {
+      background: #bdd300;
+    }
 
-  > div.steel {
-    background-color: #c5c2dc;
-  }
+    > div.ghost {
+      background: #7d76db;
+    }
 
-  > div.fire {
-    background-color: #ff5540;
-  }
+    > div.steel {
+      background: #c5c2dc;
+    }
 
-  > div.water {
-    background-color: #00afff;
-  }
+    > div.fire {
+      background: #ff5540;
+    }
 
-  > div.grass {
-    background-color: #59d842;
-  }
+    > div.water {
+      background: #00afff;
+    }
 
-  > div.electric {
-    background-color: #ffe619;
-  }
+    > div.grass {
+      background: #59d842;
+    }
 
-  > div.psychic {
-    background-color: #ff64b9;
-  }
+    > div.electric {
+      background: #ffe619;
+    }
 
-  > div.ice {
-    background-color: #52f1ff;
-  }
+    > div.psychic {
+      background: #ff64b9;
+    }
 
-  > div.dragon {
-    background-color: #9376ff;
-  }
+    > div.ice {
+      background: #52f1ff;
+    }
 
-  > div.dark {
-    background-color: #9a6853;
-  }
+    > div.dragon {
+      background: #9376ff;
+    }
 
-  > div.fairy {
-    background-color: #ffaeff;
+    > div.dark {
+      background: #9a6853;
+    }
+
+    > div.fairy {
+      background: #ffaeff;
+    }
   }
 `;
