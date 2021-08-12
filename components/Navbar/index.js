@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../img/PokeChallengeLogo.png';
+import Logo from '../../public/img/PokeChallengeLogo.png';
 import {
   Nav,
   NavbarContainer,
