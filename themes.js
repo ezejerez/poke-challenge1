@@ -12,9 +12,5 @@ export const darkTheme = {
 
 export const ThemeStyles = createGlobalStyle`
 body {
-  background-color: ${(props) => props.theme.body};
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
+  background: ${(props) => props.theme.body};
 }`;

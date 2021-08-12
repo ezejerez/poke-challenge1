@@ -5,8 +5,9 @@ import { getAllPokemon, getPokemon } from '../services/pokemon';
 import Navbar from '../components/Navbar';
 import PokemonTypeButtons from '../components/PokemonTypeButtons';
 import PokemonCard from '../components/PokemonCard/index';
-import PrevPage1 from '../img/PrevPage1.svg';
-import NextPage1 from '../img/NextPage1.svg';
+import PrevPage1 from '../public/img/PrevPage1.svg';
+import NextPage1 from '../public/img/NextPage1.svg';
+import GlobalStyles from '../globalStyles';
 
 export default function App() {
   const pokemonTypeCardsIds = [
@@ -86,7 +87,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <ThemeStyles />
+      <GlobalStyles />
 
       <Navbar />
 
