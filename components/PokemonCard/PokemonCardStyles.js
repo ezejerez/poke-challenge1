@@ -9,6 +9,21 @@ export const StyledPokemonCard = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: center;
+
+  @media only screen and (max-width: 1366px) {
+    height: 350px;
+    width: 220px;
+  }
+
+  @media only screen and (max-width: 1280px) {
+    height: 320px;
+    width: 220px;
+  }
+
+  @media only screen and (max-width: 411px) {
+    height: 200px;
+    width: 110px;
+  }
 `;
 
 export const StyledFrontCard = styled.div`
@@ -19,8 +34,8 @@ export const StyledFrontCard = styled.div`
   height: 100%;
 
   > img {
-    width: 16em;
-    background: white;
+    width: 256px;
+    background: #fff;
     border: 1px solid black;
     border-radius: 10px;
     margin: auto;
@@ -28,10 +43,27 @@ export const StyledFrontCard = styled.div`
 
   > h1 {
     margin: auto;
-    color: white;
+    color: #fff;
     text-transform: uppercase;
     width: 100%;
     text-align: center;
+  }
+
+  @media only screen and (max-width: 1366px) {
+    > img {
+      width: 200px;
+    }
+  }
+
+  @media only screen and (max-width: 411px) {
+    > img {
+      width: 90px;
+    }
+
+    > h1 {
+      text-align: center;
+      font-size: 14px;
+    }
   }
 `;
 
@@ -59,6 +91,24 @@ export const StyledBackCard = styled.div`
     margin: 0px 10px 10px 10px;
   }
 
+  @media only screen and (max-width: 1366px) {
+    > h1 {
+      font-size: 23px;
+      margin-top: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 411px) {
+    .stats {
+      font-size: 8px;
+    }
+
+    > h1 {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
+
   .type {
     display: flex;
     justify-content: space-between;
@@ -72,6 +122,21 @@ export const StyledBackCard = styled.div`
       border-radius: 5px;
       padding: 5px;
       margin: 5px;
+    }
+
+    @media only screen and (max-width: 1366px) {
+      > div {
+        font-size: 16px;
+        margin: 10px;
+      }
+    }
+
+    @media only screen and (max-width: 411px) {
+      > div {
+        font-size: 10px;
+        padding: 1px;
+        margin: 2px;
+      }
     }
 
     > div.normal {

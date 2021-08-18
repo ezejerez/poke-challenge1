@@ -1,27 +1,29 @@
 import styled from 'styled-components';
 
 export const PokemonTypeButtonsContainer = styled.div`
-  width: 60%;
-  margin: auto;
-  margin-bottom: 1%;
-
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  width: 100%;
 `;
 
 export const PokemonTypeButton = styled.button`
-  color: white;
+  color: #fff;
   border: 1px solid grey;
   overflow: hidden;
   outline: none;
   cursor: pointer;
   border-radius: 12px;
+  margin: 10px;
 
   text-align: center;
   text-transform: uppercase;
   font-size: 30px;
-  margin-top: 30px;
+
+  @media only screen and (max-width: 411px) {
+    margin: 5px;
+    font-size: 14px;
+  }
 
   background-color: ${(props) => {
     if (props.pokemonTypeId === 1) {
