@@ -1,28 +1,22 @@
 import React from 'react';
 import Logo from '../../public/img/PokeChallengeLogo.png';
-import {
-  Nav,
-  NavbarContainer,
-  NavLogo,
-  NavbarButtonsContainer,
-  NavbarButton,
-} from './NavbarStyles';
+import { Nav, NavbarContainer, ButtonsContainer } from './NavbarStyles';
 
 export default function Navbar() {
   return (
     <Nav>
       <NavbarContainer>
-        <NavbarButtonsContainer>
-          <NavbarButton>SPANISH</NavbarButton>
-          <NavbarButton>ENGLISH</NavbarButton>
-        </NavbarButtonsContainer>
+        <ButtonsContainer>
+          <button>SPANISH</button>
+          <button>ENGLISH</button>
+        </ButtonsContainer>
 
-        <NavLogo img src={Logo} alt='Logo' />
+        <img src={Logo} alt='Logo' />
 
-        <NavbarButtonsContainer>
-          <NavbarButton>ORIGINAL</NavbarButton>
-          <NavbarButton>DARK THEME</NavbarButton>
-        </NavbarButtonsContainer>
+        <ButtonsContainer>
+          <button>ORIGINAL</button>
+          <button>DARK THEME</button>
+        </ButtonsContainer>
       </NavbarContainer>
     </Nav>
   );

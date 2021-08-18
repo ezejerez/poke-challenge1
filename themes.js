@@ -1,16 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const lightTheme = {
-  body: 'white',
-  text: 'black',
+  body: '#fff',
+  text: '#000',
 };
 
 export const darkTheme = {
   body: '#333333',
-  text: 'white',
+  text: '#fff',
 };
 
 export const ThemeStyles = createGlobalStyle`
-body {
+body { 
   background: ${(props) => props.theme.body};
 }`;

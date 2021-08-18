@@ -91,50 +91,90 @@ export default function App() {
 
       <Navbar />
 
-      <StyledMeetThePokemons>MEET THE POKÉMONS:</StyledMeetThePokemons>
+      <ContentContainer>
+        <h1 className='title'>MEET THE POKÉMONS:</h1>
 
-      <PokemonTypeButtons
-        pokemonTypeCardsIds={pokemonTypeCardsIds}
-        onTypeButtonClick={onTypeClick}
-      />
+        <div className='type_buttons_container'>
+          <PokemonTypeButtons
+            pokemonTypeCardsIds={pokemonTypeCardsIds}
+            onTypeButtonClick={onTypeClick}
+          />
+        </div>
 
-      <StyledCardsContainer>
-        <img src={PrevPage1} alt='prev1' onClick={prev} />
-
-        {pokemonsToShow.slice(pokeIndex, pokeIndex + 5).map((pokemon) => (
-          <PokemonCard key={pokemon.name} pokemon={pokemon} />
-        ))}
-
-        <img src={NextPage1} alt='next1' onClick={next} />
-      </StyledCardsContainer>
+        <div className='cards_container'>
+          <img src={PrevPage1} alt='prev1' onClick={prev} />
+          <div className='cards'>
+            {pokemonsToShow.slice(pokeIndex, pokeIndex + 5).map((pokemon) => (
+              <PokemonCard key={pokemon.name} pokemon={pokemon} />
+            ))}
+          </div>
+          <img src={NextPage1} alt='next1' onClick={next} />
+        </div>
+      </ContentContainer>
     </ThemeProvider>
   );
 }
 
-const StyledMeetThePokemons = styled.h1`
-  color: black;
-  margin-top: 2%;
-  padding-right: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-
-  font-size: 30px;
-  text-align: center;
-`;
-
-const StyledCardsContainer = styled.div`
+const ContentContainer = styled.div`
+  margin-top: 20px;
+  align-items: center;
   width: 100%;
-  margin: auto;
-  padding-top: 2%;
+  height: 100%;
 
-  display: flex;
-  justify-content: space-around;
+  @media only screen and (max-width: 411px) {
+    margin-top: 5px;
+  }
 
-  > img {
-    width: 5%;
-    height: 5%;
-    margin-top: auto;
-    margin-bottom: auto;
-    cursor: pointer;
+  .title {
+    color: #000;
+    margin: auto;
+    font-size: 30px;
+    text-align: center;
+
+    @media only screen and (max-width: 411px) {
+      font-size: 14px;
+    }
+  }
+
+  .type_buttons_container {
+    margin: auto;
+    width: 90%;
+
+    @media only screen and (max-width: 411px) {
+      margin: auto;
+      width: 100%;
+    }
+  }
+
+  .cards_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+
+    .cards {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    > img {
+      width: 5%;
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width: 411px) {
+      margin-top: 10px;
+
+      .cards {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+    }
   }
 `;
