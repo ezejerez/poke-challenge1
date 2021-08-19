@@ -14,14 +14,17 @@ export const PokemonTypeButton = styled.button`
   outline: none;
   cursor: pointer;
   border-radius: 12px;
-  margin: 10px;
+  margin: 5px;
 
   text-align: center;
   text-transform: uppercase;
   font-size: 30px;
 
+  @media only screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+
   @media only screen and (max-width: 411px) {
-    margin: 5px;
     font-size: 14px;
   }
 

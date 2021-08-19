@@ -71,6 +71,7 @@ export default function App() {
 
   function onTypeClick(typeClicked) {
     setSelectedPokemonType(typeClicked);
+    setPokeIndex(0);
   }
 
   function getPokemonsToShow() {
@@ -92,7 +93,7 @@ export default function App() {
       <Navbar />
 
       <ContentContainer>
-        <h1 className='title'>MEET THE POKÉMONS:</h1>
+        <h1 className='title'>MEET THE POKEMONS:</h1>
 
         <div className='type_buttons_container'>
           <PokemonTypeButtons
@@ -121,15 +122,14 @@ const ContentContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  @media only screen and (max-width: 411px) {
-    margin-top: 5px;
-  }
-
   .title {
     color: #000;
-    margin: auto;
     font-size: 30px;
     text-align: center;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 24px;
+    }
 
     @media only screen and (max-width: 411px) {
       font-size: 14px;
@@ -148,10 +148,6 @@ const ContentContainer = styled.div`
 
   .cards_container {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    margin-top: 20px;
 
     .cards {
       width: 100%;
@@ -163,14 +159,13 @@ const ContentContainer = styled.div`
     > img {
       width: 5%;
       cursor: pointer;
+      margin: auto;
     }
 
-    @media only screen and (max-width: 411px) {
+    @media only screen and (max-width: 768px) {
       margin-top: 10px;
 
       .cards {
-        width: 100%;
-        height: 100%;
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;

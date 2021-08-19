@@ -6,9 +6,7 @@ export const Nav = styled.div`
   height: 80px;
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: sticky;
 `;
 
 export const NavbarContainer = styled.div`
@@ -16,15 +14,20 @@ export const NavbarContainer = styled.div`
   justify-content: space-between;
   height: 90%;
   width: 100%;
-  margin: 24px;
+  padding: 0 24px 0 24px;
 
-  @media only screen and (max-width: 411px) {
-    margin: 5px;
+  @media only screen and (max-width: 768px) {
+    padding: 0 5px 0 5px;
 
     > img {
-      height: 55%;
-      width: 55%;
+      width: 40%;
       margin: auto;
+    }
+  }
+
+  @media only screen and (max-width: 411px) {
+    > img {
+      width: 50%;
     }
   }
 `;
