@@ -20,9 +20,19 @@ export const StyledPokemonCard = styled.div`
     width: 220px;
   }
 
+  @media only screen and (max-width: 768px) {
+    height: 300px;
+    width: 200px;
+  }
+
   @media only screen and (max-width: 411px) {
     height: 200px;
     width: 110px;
+  }
+
+  @media only screen and (max-width: 360px) {
+    height: 150px;
+    width: 90px;
   }
 `;
 
@@ -34,7 +44,7 @@ export const StyledFrontCard = styled.div`
   height: 100%;
 
   > img {
-    width: 256px;
+    width: 90%;
     background: #fff;
     border: 1px solid black;
     border-radius: 10px;
@@ -49,20 +59,21 @@ export const StyledFrontCard = styled.div`
     text-align: center;
   }
 
-  @media only screen and (max-width: 1366px) {
-    > img {
-      width: 200px;
+  @media only screen and (max-width: 768px) {
+    > h1 {
+      font-size: 25px;
     }
   }
 
   @media only screen and (max-width: 411px) {
-    > img {
-      width: 90px;
-    }
-
     > h1 {
-      text-align: center;
       font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 360px) {
+    > h1 {
+      font-size: 12px;
     }
   }
 `;
@@ -98,6 +109,16 @@ export const StyledBackCard = styled.div`
     }
   }
 
+  @media only screen and (max-width: 768px) {
+    .stats {
+      font-size: 13px;
+    }
+
+    > h1 {
+      font-size: 20px;
+    }
+  }
+
   @media only screen and (max-width: 411px) {
     .stats {
       font-size: 8px;
@@ -106,6 +127,17 @@ export const StyledBackCard = styled.div`
     > h1 {
       margin-top: 10px;
       font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 360px) {
+    .stats {
+      font-size: 6px;
+    }
+
+    > h1 {
+      margin-top: 8px;
+      font-size: 10px;
     }
   }
 
@@ -131,11 +163,23 @@ export const StyledBackCard = styled.div`
       }
     }
 
+    @media only screen and (max-width: 768px) {
+      > div {
+        font-size: 12px;
+      }
+    }
+
     @media only screen and (max-width: 411px) {
       > div {
         font-size: 10px;
         padding: 1px;
         margin: 2px;
+      }
+    }
+
+    @media only screen and (max-width: 360px) {
+      > div {
+        font-size: 6px;
       }
     }
 
