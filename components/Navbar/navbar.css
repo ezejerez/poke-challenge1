@@ -1,0 +1,34 @@
+.navbar-wrapper {
+  background: #ee0000;
+  color: #ffdf00;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  height: 90%;
+  width: 100%;
+  padding: 0 24px 0 24px;
+  align-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-container {
+    padding: 0 5px 0 5px;
+  }
+  img {
+    width: 40%;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 411px) {
+  img {
+    width: 50%;
+  }
+}

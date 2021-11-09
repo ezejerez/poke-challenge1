@@ -22,6 +22,4 @@ html, body {
 }
 `;
 
-// , div#__next
-
 export default GlobalStyle;

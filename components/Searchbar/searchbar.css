@@ -1,0 +1,53 @@
+.searchbar-wrapper {
+  background-color: #462466;
+  border-radius: 13px;
+  border: 1px solid #69428d;
+  height: 35px;
+  width: 300px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 5%;
+}
+
+.searchbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  color: #fff;
+  background-color: #462466;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+.icon {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-input-placeholder {
+  /* Edge */
+  color: #fff;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+}
+::placeholder {
+  color: #fff;
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .searchbar-wrapper {
+    height: 35px;
+    width: 150px;
+  }
+}

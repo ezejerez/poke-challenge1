@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import {
-  PokemonTypeButtonsContainer,
-  PokemonTypeButton,
-} from './PokemonTypeButtonsStyles';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import "./pokemonTypeButtons.css";
+import axios from "axios";
 
 export default function PokemonTypeButtons({
   pokemonTypeCardsIds,
@@ -22,17 +19,22 @@ export default function PokemonTypeButtons({
   }, []);
 
   return (
-    <PokemonTypeButtonsContainer pokemonTypeCardsIds={pokemonTypeCardsIds}>
+    <div
+      className="pokemon-type-buttons-wrapper"
+      pokemonTypeCardsIds={pokemonTypeCardsIds}
+    >
       {pokemonTypeCardsIds.map((ptcId, k) => (
-        <PokemonTypeButton
+        <button
+          className="pokemon-type-button"
           key={k}
           pokemonTypeId={ptcId}
           onClick={() => {
             onTypeButtonClick(pokemonTypeNames[ptcId]);
-          }}>
+          }}
+        >
           {pokemonTypeNames[ptcId]}
-        </PokemonTypeButton>
+        </button>
       ))}
-    </PokemonTypeButtonsContainer>
+    </div>
   );
 }
