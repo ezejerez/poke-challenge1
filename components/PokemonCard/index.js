@@ -27,6 +27,7 @@ export default function PokemonCard({ pokemon }) {
             <p>Defense: {pokemon.stats[2].base_stat}</p>
             <p>Abilities: {abilitiesNames.join(", ")}</p>
           </div>
+          <button className="evolutions-button">Evolutions</button>
         </div>
       ) : (
         <div className="front-card">

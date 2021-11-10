@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import Axios from "axios";
 
-function Login() {
+function Login({ showCardsView }) {
   const [data, setData] = useState({
     name: "",
     password: "",
@@ -45,7 +45,12 @@ function Login() {
             placeholder="Password"
           />
         </div>
-        <input type="submit" value="GO!" className="login-form-button" />
+        <input
+          type="submit"
+          value="GO!"
+          className="login-form-button"
+          onClick={showCardsView}
+        />
       </form>
     </div>
   );

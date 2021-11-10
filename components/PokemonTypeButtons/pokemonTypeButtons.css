@@ -7,7 +7,7 @@
 
 .pokemon-type-button {
   color: #fff;
-  border: 1px solid grey;
+  border: 1px solid #111;
   overflow: hidden;
   outline: none;
   cursor: pointer;
@@ -16,87 +16,76 @@
   text-align: center;
   text-transform: uppercase;
   font-size: 30px;
-
-  /* background-color: ${(props) => {
-    if (props.pokemonTypeId === 1) {
-      return '#bdbdaf';
-    }
-
-    if (props.pokemonTypeId === 2) {
-      return '#bf5540';
-    }
-
-    if (props.pokemonTypeId === 3) {
-      return '#62a5ff';
-    }
-
-    if (props.pokemonTypeId === 4) {
-      return '#c05da6';
-    }
-
-    if (props.pokemonTypeId === 5) {
-      return '#fbcf49';
-    }
-
-    if (props.pokemonTypeId === 6) {
-      return '#d4bd6e';
-    }
-
-    if (props.pokemonTypeId === 7) {
-      return '#bdd300';
-    }
-
-    if (props.pokemonTypeId === 8) {
-      return '#7d76db';
-    }
-
-    if (props.pokemonTypeId === 9) {
-      return '#c5c2dc';
-    }
-
-    if (props.pokemonTypeId === 10) {
-      return '#ff5540';
-    }
-
-    if (props.pokemonTypeId === 11) {
-      return '#00afff';
-    }
-
-    if (props.pokemonTypeId === 12) {
-      return '#59d842';
-    }
-
-    if (props.pokemonTypeId === 13) {
-      return '#ffe619';
-    }
-
-    if (props.pokemonTypeId === 14) {
-      return '#ff64b9';
-    }
-
-    if (props.pokemonTypeId === 15) {
-      return '#52f1ff';
-    }
-
-    if (props.pokemonTypeId === 16) {
-      return '#9376ff';
-    }
-
-    if (props.pokemonTypeId === 17) {
-      return '#9a6853';
-    }
-
-    if (props.pokemonTypeId === 18) {
-      return '#ffaeff';
-    }
-  }}; */
 }
 
-/* POKEMON TYPE BUTTON MEDIA */
-/* @media only screen and (max-width: 768px) {
-    font-size: 20px;
-  }
+[id="1"] {
+  background-color: #bdbdaf;
+}
 
-  @media only screen and (max-width: 411px) {
-    font-size: 14px;
-  } */
+[id="2"] {
+  background-color: #bf5540;
+}
+
+[id="3"] {
+  background-color: #62a5ff;
+}
+
+[id="4"] {
+  background-color: #c05da6;
+}
+
+[id="5"] {
+  background-color: #fbcf49;
+}
+
+[id="6"] {
+  background-color: #d4bd6e;
+}
+
+[id="7"] {
+  background-color: #bdd300;
+}
+
+[id="8"] {
+  background-color: #7d76db;
+}
+
+[id="9"] {
+  background-color: #c5c2dc;
+}
+
+[id="10"] {
+  background-color: #ff5540;
+}
+
+[id="11"] {
+  background-color: #00afff;
+}
+
+[id="12"] {
+  background-color: #59d842;
+}
+
+[id="13"] {
+  background-color: #ffe619;
+}
+
+[id="14"] {
+  background-color: #ff64b9;
+}
+
+[id="15"] {
+  background-color: #52f1ff;
+}
+
+[id="16"] {
+  background-color: #9376ff;
+}
+
+[id="17"] {
+  background-color: #9a6853;
+}
+
+[id="18"] {
+  background-color: #ffaeff;
+}

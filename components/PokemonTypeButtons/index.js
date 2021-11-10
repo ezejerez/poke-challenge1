@@ -26,6 +26,7 @@ export default function PokemonTypeButtons({
       {pokemonTypeCardsIds.map((ptcId, k) => (
         <button
           className="pokemon-type-button"
+          id={ptcId}
           key={k}
           pokemonTypeId={ptcId}
           onClick={() => {
