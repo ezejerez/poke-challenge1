@@ -19,23 +19,22 @@ export default function PokemonTypeButtons({
   }, []);
 
   return (
-    <div
-      className="pokemon-type-buttons-wrapper"
-      pokemonTypeCardsIds={pokemonTypeCardsIds}
-    >
-      {pokemonTypeCardsIds.map((ptcId, k) => (
-        <button
-          className="pokemon-type-button"
-          color={ptcId}
-          key={k}
-          pokemonTypeId={ptcId}
-          onClick={() => {
-            onTypeButtonClick(pokemonTypeNames[ptcId]);
-          }}
-        >
-          {pokemonTypeNames[ptcId]}
-        </button>
-      ))}
+    <div className="pokemon-type-buttons-wrapper">
+      {Object.keys(pokemonTypeNames).map((ptcId) => {
+        const typeName = pokemonTypeNames[ptcId];
+
+        return (
+          <button
+            className={`pokemon-type-button ${typeName}`}
+            key={typeName}
+            onClick={() => {
+              onTypeButtonClick(typeName);
+            }}
+          >
+            {typeName}
+          </button>
+        );
+      })}
     </div>
   );
 }

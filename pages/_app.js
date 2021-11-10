@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { getAllPokemon, getPokemon } from "../services/pokemon";
+import {
+  getAllPokemon,
+  getEvolutionChain,
+  getPokemon,
+} from "../services/pokemon";
 import Navbar from "../components/Navbar";
 import PokemonTypeButtons from "../components/PokemonTypeButtons";
 import PokemonCard from "../components/PokemonCard/index";
@@ -22,6 +26,8 @@ export default function App() {
   const [pokeIndex, setPokeIndex] = useState(0);
   const [selectedPokemonType, setSelectedPokemonType] = useState("");
   const [isLogged, setIsLogged] = useState(false);
+
+  const [pokeSearch, setPokeSearch] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -68,13 +74,17 @@ export default function App() {
   }
 
   function getPokemonsToShow() {
+    const filteredByName = pokemonData.filter(
+      (pokemon) => !!pokemon.name.toLowerCase().match(pokeSearch.toLowerCase())
+    );
+
     if (selectedPokemonType) {
-      return pokemonData.filter((pokemon) =>
+      return filteredByName.filter((pokemon) =>
         pokemon.types.find((t) => t.type.name === selectedPokemonType)
       );
-    } else {
-      return pokemonData;
     }
+
+    return filteredByName;
   }
 
   const pokemonsToShow = getPokemonsToShow();
@@ -86,7 +96,7 @@ export default function App() {
   return isLogged ? (
     <>
       <GlobalStyles />
-      <Navbar />
+      <Navbar onSearchChange={(e) => setPokeSearch(e.target.value)} />
       <div className="content-wrapper">
         <h1 className="title">MEET THE POKEMONS:</h1>
 
@@ -101,7 +111,17 @@ export default function App() {
           <img src={PrevPage1} alt="prev-button" onClick={prev} />
           <div className="cards">
             {pokemonsToShow.slice(pokeIndex, pokeIndex + 20).map((pokemon) => (
-              <PokemonCard key={pokemon.name} pokemon={pokemon} />
+              <PokemonCard
+                key={pokemon.name}
+                pokemon={pokemon}
+                onEvolve={() => {
+                  getEvolutionChain(pokemon.id).then((res) => {
+                    const evolvePokemon =
+                      res.data.chain["evolves_to"][0].species.name;
+                    alert(evolvePokemon);
+                  });
+                }}
+              />
             ))}
           </div>
           <img src={NextPage1} alt="next-button" onClick={next} />

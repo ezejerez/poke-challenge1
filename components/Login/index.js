@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { login } from "../../services/pokemon";
 import "./login.css";
-import Axios from "axios";
 
 function Login({ showCardsView }) {
   const [data, setData] = useState({
-    name: "",
+    email: "",
     password: "",
   });
-  const url = "https://reqres.in/api/login";
+
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handle(e) {
     const updatedData = { ...data };
@@ -17,12 +18,14 @@ function Login({ showCardsView }) {
 
   function submit(e) {
     e.preventDefault();
-    Axios.post(url, {
-      name: data.name,
-      password: data.password,
-    }).then((res) => {
-      console.log(res.data);
-    });
+
+    login(data.email, data.password)
+      .then((res) => {
+        showCardsView();
+      })
+      .catch((err) => {
+        setErrorMessage(err.response.data.error);
+      });
   }
 
   return (
@@ -32,27 +35,25 @@ function Login({ showCardsView }) {
         <div className="login-form-inputs-container">
           <input
             onChange={(e) => handle(e)}
-            name="name"
-            value={data.name}
+            name="email"
+            value={data.email}
             type="text"
-            placeholder="Name"
+            placeholder="Email"
             className="login-input"
           />
           <input
             onChange={(e) => handle(e)}
             name="password"
             value={data.password}
-            type="text"
+            type="password"
             placeholder="Password"
             className="login-input"
           />
         </div>
-        <input
-          type="submit"
-          value="GO!"
-          className="login-form-button"
-          onClick={showCardsView}
-        />
+
+        {errorMessage ? <p className="error-message">{errorMessage}</p> : null}
+
+        <input type="submit" value="GO!" className="login-form-button" />
       </form>
     </div>
   );

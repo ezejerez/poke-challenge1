@@ -2,7 +2,7 @@ import React from "react";
 import "./searchbar.css";
 import SearchIcon from "../../public/img/search-icon.png";
 
-function Searchbar() {
+function Searchbar({ onChange }) {
   return (
     <>
       <div className="searchbar-wrapper">
@@ -12,6 +12,7 @@ function Searchbar() {
             placeholder="Search.."
             name="search"
             className="searchbar-input"
+            onChange={onChange}
           />
           <img src={SearchIcon} alt="Search icon" className="icon" />
         </form>

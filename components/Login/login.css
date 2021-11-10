@@ -47,10 +47,15 @@
   height: 30px;
   padding-left: 10px;
   font-size: 20px;
-  color: red;
+  color: #ee0000;
 }
 
 .login-input::placeholder {
   color: #666;
   padding: 0;
+}
+
+.error-message {
+  color: #ee0000;
+  margin: auto;
 }
