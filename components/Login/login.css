@@ -50,7 +50,7 @@
   color: red;
 }
 
-::placeholder {
+.login-input::placeholder {
   color: #666;
   padding: 0;
 }

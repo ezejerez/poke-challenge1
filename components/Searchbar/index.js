@@ -11,7 +11,7 @@ function Searchbar() {
             type="text"
             placeholder="Search.."
             name="search"
-            className="input"
+            className="searchbar-input"
           />
           <img src={SearchIcon} alt="Search icon" className="icon" />
         </form>

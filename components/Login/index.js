@@ -36,6 +36,7 @@ function Login({ showCardsView }) {
             value={data.name}
             type="text"
             placeholder="Name"
+            className="login-input"
           />
           <input
             onChange={(e) => handle(e)}
@@ -43,6 +44,7 @@ function Login({ showCardsView }) {
             value={data.password}
             type="text"
             placeholder="Password"
+            className="login-input"
           />
         </div>
         <input

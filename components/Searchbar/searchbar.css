@@ -19,13 +19,14 @@
   width: 100%;
 }
 
-.input {
+.searchbar-input {
   color: #ffdf00;
   background-color: #bd0505;
   outline: none;
   border: none;
   width: 100%;
   padding-left: 20px;
+  font-size: 15px;
 }
 
 .icon {
@@ -34,9 +35,8 @@
   height: 15px;
 }
 
-::placeholder {
+.searchbar-input::placeholder {
   color: #ffdf00;
-  padding-left: 10px;
 }
 
 @media screen and (max-width: 768px) {
